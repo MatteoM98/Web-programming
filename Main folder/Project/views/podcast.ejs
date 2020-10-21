@@ -1,0 +1,15 @@
+<!--Start podcast structure-->
+<div class="podcast-design">
+    <h3><%= title %></h3>
+    <h6>Description</h6>
+    <p><%= description %></p> 
+    <p>Per non seguire più il podcast clicca qui:<button type="button" class="btn btn-primary" data-toggle="modal" 
+        data-target="#confirmModal" data-whatever="<%= ID %>" id = "deleteBtn">
+        Unfollow
+     </button></p> 
+    <h6>Category</h6>
+    <p><%= category %></p>
+    <img src="/images/<%=image%>" alt="title">
+    <hr>
+</div>
+<!--End podcast structure-->

@@ -1,0 +1,73 @@
+<!-- Modal -->
+<form action="/profiles/<%=username%>/myepisodes" method="POST" id="deleteForm">
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary" id="confirm-delete-btn">Yes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </form>
+  
+  
+  <!--Modify modal-->
+  <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modify Episode</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="/profiles/<%=username%>/myepisodes" id="modifyForm">
+            <div class="form-group">
+              <label for="recipient-title" class="col-form-label">Title:</label>
+              <input type="text" class="form-control" id="recipient-title" name="title" required>
+            </div>
+            <div class="form-group">
+              <label for="description-text" class="col-form-label">Description:</label>
+              <textarea class="form-control" id="description-text" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="recipient-date" class="col-form-label">Date</label>
+              <input type="date" class="form-control" id="recipient-date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="episodePrice">Price (free = 0)</label>
+                <input name="price" type="number" class="form-control" id="episodePrice" step="0.01" min=0 required></input>
+            </div>
+            <div class="form-group">
+                <label for="episodeSponsor">Sponsor *</label>
+                <input name="sponsor" type="text" class="form-control" id="episodeSponsor"></input>
+            </div>
+            <% if (podcasts) { %>
+              <div class="form-group">
+                <label for="episodePodcast">Podcast *</label>
+                <select id="episodePodcast" class="form-control" name="podcast">
+                  <option selected>-</option>
+                  <% for (let pod of podcasts) { %>
+                       <option><%=pod.ID%>.<%=pod.Title%></option>
+                  <% } %>
+                </select>
+              </div>
+            <% } %>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary send-msg" id="confirm-modify-btn">Modify</button>
+        </div>
+      </div>
+    </div> 
+  </div>

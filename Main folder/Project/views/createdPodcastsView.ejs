@@ -1,0 +1,80 @@
+<!--Start podcast structure-->
+<div class="podcast-design">
+    <h3><%= title %></h3>
+    <h6>Description</h6>
+    <p><%= description %></p> 
+    <p>Per cancellare il podcast clicca qui:<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmeModal<%= ID %>" id = "deleteBtn">
+       Delete
+    </button></p> 
+    <p>Per modificare il podcast clicca qui:<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modifyModal<%= ID %>" id = "modifyBtn">
+      Modify
+   </button></p> 
+    <h6>Category</h6>
+    <p><%= category %></p>
+    <img src="/images/<%=image%>" alt="title">
+    <hr>
+</div>
+<!--End podcast structure-->
+
+<!-- Modal -->
+<form action="/profiles/<%=username%>/mypodcasts" method="POST" id="modalForm<%=ID%>" podcastID="<%= ID %>">
+  <div class="modal fade" id="confirmeModal<%= ID %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" formID="modalForm<%=ID%>">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <button type="button" class="btn btn-primary modalbtn" podcastID="<%= ID %>">Yes</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</form>
+
+
+<!--Modify modal-->
+<div class="modal fade" id="modifyModal<%= ID %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modify Podcast</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/profiles/<%=username%>/mypodcasts" id="modifyForm<%=ID%>">
+          <div class="form-group">
+            <label for="recipient-title-<%= ID %>" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="recipient-title-<%= ID %>" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="description-text-<%= ID %>" class="col-form-label">Description:</label>
+            <textarea class="form-control" id="description-text-<%= ID %>" name="description" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="category-<%= ID %>" class="col-form-label">Category</label>
+            <select id="category-<%= ID %>" class="form-control" name="category" required>
+              <option selected>Art</option>
+              <option>Music</option>
+              <option>Science</option>
+              <option>Science Fiction</option>
+              <option>Technology</option>
+              <option>TV series</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary send-msg" podcastID="<%= ID %>">Send message</button>
+      </div>
+    </div>
+  </div> 
+</div>

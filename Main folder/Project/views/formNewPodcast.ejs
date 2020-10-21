@@ -1,0 +1,49 @@
+<form action="/profiles/<%=username%>/newPodcast" method="POST" enctype="multipart/form-data">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Title</label>
+        <input type="text" class="form-control" id="inputEmail4" name="title" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Author</label>
+        <input type="text" class="form-control" id="inputPassword4" name="author"  value="<%=username%>" readonly required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputDescr">Description</label>
+      <textarea type="text" class="form-control" id="inputDescr" placeholder="Add description..." name="description" required></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-9">
+        <label for="inputCategory">Category</label>
+        <select id="inputCategory" class="form-control" name="category" required>
+          <option selected>Art</option>
+          <option>Music</option>
+          <option>Science</option>
+          <option>Science Fiction</option>
+          <option>Technology</option>
+          <option>TV Series</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="imageUpload">Image</label>
+        <input type="file" class="form-control-file" id="imageUpload" name="image" accept="image/*" required>
+      </div>
+    </div>
+    <% if (rows) { %> <!-- rows is an array that contains the ID and title of all the episodes that do not belong to any podcast-->
+    <div class="form-group" id="EpisodeN0">
+        <label>Episodio *</label>
+        <select class="form-control" name="episodes">
+          <option selected>-</option>
+          <% for (let ep of rows) { %>
+          <option><%=ep.ID%>.<%=ep.Title%></option>
+          <% } %>
+        </select>
+    </div>
+    <% } %>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="addEpButton">Add episode</button>
+    </div>
+    <button type="submit" class="btn btn-success" id="submitButton">Create</button>
+  </form>

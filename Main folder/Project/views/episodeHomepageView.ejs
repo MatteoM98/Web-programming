@@ -1,0 +1,47 @@
+<div class="episode-design">
+    <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Data</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Audio</th>
+            <th scope="col">Price</th>
+            <th scope="col">Sponsor</th>
+            <th scope="col">Add favourite</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let i=0; i < episodes.length; i++) { %>
+          <tr>
+            <th scope="row"><%=i+1%></th>
+            <td><%=episodes[i].Date%></td>
+            <td><a href="/home/episodes/<%=episodes[i].ID%>"><%=episodes[i].Title%></a></td>
+            <td><%=episodes[i].Description%></td>
+            <td>
+              <form action="/home/purchased" method="POST" id="<%=episodes[i].ID%>">
+              <button class="btn play-btn" episode-audio="<%=episodes[i].Audio%>" podcast-image="<%=episodes[i].Image%>" episode-title="<%=episodes[i].Title%>" podcast-title="<%=episodes[i].PodcastTitle%>" 
+              auth="<%=username%>" price="<%=episodes[i].Price%>" hasCC="<%= hasCC %>" episodeID = "<%=episodes[i].ID%>">
+                <i episode-audio="<%=episodes[i].Audio%>" podcast-image="<%=episodes[i].Image%>" class="far fa-play-circle"  episode-title="<%=episodes[i].Title%>" podcast-title="<%=episodes[i].PodcastTitle%>"
+                  auth="<%=username%>" price="<%=episodes[i].Price%>" hasCC="<%= hasCC %>" episodeID = "<%=episodes[i].ID%>">
+                </i>
+              </button>
+            </form>
+          </td>
+            <% if(episodes[i].Price == 0) { %>
+                <td>Free</td>
+            <% } else { %>
+                <td><%=episodes[i].Price%></td>
+            <% } %>  
+            <td><%=episodes[i].Sponsor%></td>
+            <td>
+              <form action="/home/addFavorites" method="POST" id="<%=episodes[i].ID%>Favorites">
+                <button type="button" class="btn add-fav-button" data-toggle="modal" data-target="#deleteModal"
+                        auth="<%=username%>" price="<%=episodes[i].Price%>" hasCC="<%= hasCC %>" episodeID = "<%=episodes[i].ID%>">
+                    <i class="fas fa-check" auth="<%=username%>" price="<%=episodes[i].Price%>" hasCC="<%= hasCC %>" episodeID = "<%=episodes[i].ID%>"></i>
+                </button>
+              </form>
+          </td>
+          </tr>
+          <% } %>

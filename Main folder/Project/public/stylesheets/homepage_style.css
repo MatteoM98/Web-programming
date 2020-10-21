@@ -1,0 +1,190 @@
+#title-navbar {
+    color: white;
+    font-family: 'Yatra One';
+}
+
+#search-button {
+    color: white;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+#search-form {
+   margin-left: auto;
+}
+
+.aside-bar {
+    margin-top: 2rem;
+    width: 23%;
+    position: fixed;
+    top: 3rem;
+}
+
+.vheight-100 {
+    min-height: 100vh;
+}
+
+a.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #3f4851;
+    font-weight: bold;
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+a.list-group-item:hover {
+    color: #fff;
+    background-color: rgb(197, 201, 206);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+main.col-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+    background-color: #212529;
+    padding: 0%;
+}
+
+#title-podcast-section {
+    margin-top: 5rem;
+    margin-left: 40%;
+    color: white;
+    font-family: 'Yatra One';
+}
+
+#title-episode-section {
+    margin-top: 5rem;
+    margin-left: 40%;
+    color: white;
+    font-family: 'Yatra One';
+}
+
+.podcast-design {
+    color: white;
+    margin-top: 1rem;
+}
+
+#dropdownMenuLink {
+    margin-right: 40rem;
+}
+
+.podcast-design>h3 {
+    color: white;
+    text-align: center;
+    font-style: oblique;
+}
+
+.podcast-design>h5 {
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0;
+    font-family: 'Yatra One';
+}
+
+
+.podcast-design>p {
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.podcast-design>p>a {
+    color: white;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.podcast-design>img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-left: 2rem;
+}
+
+.podcast-design>hr {
+    border-top: 1px dotted white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.follow-button {
+    margin-left: 1rem;
+}
+
+.episode-design>.table {
+    width: 100%;
+    margin-top: 2rem;
+    color: #212529;
+}
+
+.episode-design>.table.table-dark {
+    color: #fff;
+    background-color: #343a40;
+}
+
+table th {
+    width: auto !important;
+}
+
+#aplayer {
+    background: #fff;
+    font-family: Arial,Helvetica,sans-serif;
+    margin: 1.5px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.07),0 1px 5px 0 rgba(0,0,0,.1);
+    border-radius: 2px;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    line-height: normal;
+    position: fixed;
+    bottom: 0;
+    width: 75%;
+}
+
+main .play-btn {
+    color: white;
+    font-size: large;
+}
+
+main .play-btn:hover {
+    color:white;
+    font-size: larger;
+}
+
+main .follow-button {
+    color: rgb(43, 196, 55);
+    background-color: transparent;
+    border-color: transparent;
+}
+
+main .add-fav-button {
+    color: rgb(43, 196, 55);
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#userICO {
+    font-family: "Font Awesome 5 Free";
+    font-size: larger;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+td a {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+td a:hover {
+    color: white;
+    font-style: italic;
+    text-decoration: underline;
+}

@@ -1,0 +1,116 @@
+.aside-bar {
+    margin-top: 1rem;
+}
+
+#podcast-homepage-button {
+    font-family: 'Yatra One';
+}
+
+#podcast-homepage-button:hover {
+    font-family: 'Yatra One';
+    border-bottom: 2px solid white;
+    font-weight: bold;
+}
+
+#logout-link {
+    font-size: medium;
+}
+
+#logout-link:hover {
+    border-bottom: 2px solid white;
+    font-weight: bold;
+}
+.vheight-100 {
+    min-height: 100vh;
+}
+
+a.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #3f4851;
+    font-weight: bold;
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+a.list-group-item:hover {
+    color: #fff;
+    background-color: rgb(197, 201, 206);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#username-label {
+    margin-top: 1rem;
+    color: white;
+    font-size: large;
+    font-family: 'Yatra One';
+}
+
+main.col-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+    background-color: #212529;
+    padding: 1%;
+}
+
+.credit-card-container h4 {
+    color: white;
+    margin-left: 0.5rem;
+    margin-top: 2rem;
+}
+
+.credit-card-container h4 {
+    margin-left: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.credit-card-container h4 > span {
+    color: rgb(4, 177, 13);
+}
+
+.credit-card-container #addCC {
+    margin-left: 40%;
+    margin-top: 2rem;
+    font-size: 22px;
+    color: white;
+    background-color: #0069d9;
+    font-weight: bold;
+    border-color: #0069d9;
+}
+
+.credit-card-container #addCC:hover {
+    background-color: #4c8cd1;
+    border-color:  #4c8cd1;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: white;
+}
+
+.form-group > textarea {
+    overflow: auto;
+    resize: vertical;
+    width:100%;
+    max-width:100%;
+    max-height: 300px !important;
+}
+
+form button#submitButton {
+    margin-top: 2rem;
+    background-color: rgb(13, 192, 13);
+    border-color: transparent;
+}
+
+#imageUpload {
+    color: white;
+    font-weight: bold;
+}
+
+.badge-primary {
+    float: right;
+}

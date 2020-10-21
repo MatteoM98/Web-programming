@@ -1,0 +1,160 @@
+.aside-bar {
+    margin-top: 1rem;
+}
+
+#podcast-homepage-button {
+    font-family: 'Yatra One';
+}
+
+#podcast-homepage-button:hover {
+    font-family: 'Yatra One';
+    border-bottom: 2px solid white;
+    font-weight: bold;
+}
+
+#logout-link {
+    font-size: medium;
+}
+
+#logout-link:hover {
+    border-bottom: 2px solid white;
+    font-weight: bold;
+}
+.vheight-100 {
+    min-height: 100vh;
+}
+
+a.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #3f4851;
+    font-weight: bold;
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+a.list-group-item:hover {
+    color: #fff;
+    background-color: rgb(197, 201, 206);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#username-label {
+    margin-top: 1rem;
+    color: white;
+    font-size: large;
+    font-family: 'Yatra One';
+}
+
+main.col-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+    background-color: #212529;
+    padding: 0%;
+}
+
+.podcast-design>h3 {
+    color: white;
+    text-align: center;
+    font-style: oblique;
+}
+
+.podcast-design>h6 {
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0;
+    font-family: 'Yatra One';
+}
+
+
+.podcast-design>p {
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.podcast-design>p>a {
+    color: white;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.podcast-design>img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-left: 2rem;
+}
+
+.podcast-design>hr {
+    border-top: 1px dotted white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/*Da quaaa*/
+
+.episode-design>h3 {
+    color: white;
+    text-align: center;
+    font-style: oblique;
+}
+
+.episode-design>h6 {
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
+    font-family: 'Yatra One';
+    display: inline;
+}
+
+
+.episode-design>p {
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.episode-design>p>a {
+    color: white;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.episode-design>img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-left: 2rem;
+}
+
+.episode-design>hr {
+    border-top: 1px dotted white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#deleteBtn {
+    margin-left: 1rem;
+    background-color: red;
+    border: transparent;
+}
+
+#modifyBtn {
+    margin-left: 1rem;
+    border: transparent;
+}
+
+#update-creator-btn {
+    margin-top: 3rem;
+    border-radius: 5px;
+}
+
+.badge-primary {
+    float: right;
+}

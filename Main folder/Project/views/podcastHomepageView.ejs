@@ -1,0 +1,15 @@
+<form action="/home/follow" method="POST" id="<%= ID %>">
+    <div class="podcast-design">
+        <h3><%= title %></h3>
+        <h5>Description</h6>
+        <p><%= description %></p> 
+        <p>Per seguire il podcast clicca qui:<button type="button" class="btn btn-primary follow-button" auth="<%= username %>"
+            podcastID="<%= ID %>" id = "deleteBtn">
+            Follow
+        </button></p> 
+        <h5>Category</h6>
+        <p><%= category %></p>
+        <img src="/images/<%=image%>" alt="title">
+        <hr>
+    </div>
+</form>

@@ -1,0 +1,140 @@
+#title-navbar {
+    color: white;
+    font-family: 'Yatra One';
+}
+
+body {
+    background-color: #212529 !important;
+}
+
+.episode-section {
+    position: relative;
+    top: 10rem;
+    margin-bottom: 3rem;
+}
+
+#title-episode {
+    color: white;
+    text-align: center;
+    font-family: 'Yatra One';
+    font-size: 5pc;
+}
+
+#title-podcast {
+    color: white;
+    text-align: center;
+    font-style: oblique;
+    font-family: sans-serif;
+}
+
+#image-podcast {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    padding-left: 2rem;
+    padding-top: 2rem;
+}
+
+.episode-section h3 {
+    color: white;
+    margin-left: 1rem;
+    margin-top: 3rem;
+    font-family: 'Yatra One';
+    text-decoration: underline;
+}
+
+.episode-section p {
+    color: white;
+    margin-left: 1rem;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+#audio-button {
+    margin-left: 1rem;
+    background-color: cyan;
+    border-color: transparent;
+    color: black;
+    border-radius: 5px;
+}
+
+.episode-section hr {
+    border-top: 1px solid white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.comment-section {
+    margin-top: 3rem;
+}
+
+#comment-section-title {
+    color: white;
+    text-align: center;
+    font-family: 'Yatra One';
+    font-size: 3pc;
+}
+
+.comment-structure {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+.label-comment {
+    color: white;
+    display: block;
+    font-size: larger;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.comment-textarea {
+    width: 750px;
+    height: 50px;
+    resize: none;
+    background-color: transparent;
+    border: transparent;
+    display: block;
+    color: white;
+}
+
+.comment-structure .button {
+    margin-top: 1rem;
+    margin-right: 2rem;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+
+.comment-structure .modify-button {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.comment-structure .delete-button {
+    color: #fff;
+    background-color: red;
+    border: transparent;
+}
+
+#create-comment {
+    margin-left: 2rem;
+}

@@ -1,0 +1,46 @@
+<form action="/profiles/<%=username%>/newEpisode" method="POST" enctype="multipart/form-data">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Title</label>
+        <input type="text" class="form-control" id="inputTitle" name="title" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputAuthor">Author</label>
+        <input type="text" class="form-control" id="inputAuthor" name="author"  value="<%=username%>" readonly required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputDescr">Description</label>
+      <textarea type="text" class="form-control" id="inputDescr" placeholder="Add description..." name="description" required></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="episodeDate">Date</label>
+        <input name="date" type="date" class="form-control" id="episodeDate" required></input>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="episodePrice">Price (free = 0)</label>
+        <input name="price" type="number" class="form-control" id="episodePrice" step="0.01" min=0 required></input>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="audioUpload">Audio</label>
+        <input type="file" class="form-control-file" id="audioUpload" name="audio" accept="audio/*" required>
+      </div>
+    </div>
+    <% if (rows) { %>
+    <div class="form-group" id="EpisodeN0">
+        <label>Podcast</label>
+        <select class="form-control" name="podcast" required>
+          <option selected></option>
+          <% for (let pod of rows) { %>
+            <option><%=pod.ID%>.<%=pod.Title%></option>
+            <% } %>
+        </select>
+    </div>
+    <% } %>
+    <div class="form-group">
+        <label for="inputSponsor">Sponsor *</label>
+        <input type="text" class="form-control" id="inputSponsor" placeholder="Add sponsor..." name="sponsor">
+      </div>
+    <button type="submit" class="btn btn-success" id="submitButton">Create</button>
+  </form>

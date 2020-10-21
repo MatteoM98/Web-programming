@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- My CSS-->
+      <link rel="stylesheet" href="/stylesheets/singleEpisode_style.css">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!--Aplayer CSS-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
+      <!-- Google Fonts-->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yatra+One">
+      <title><%= episodeInfo.Podcast%> | <%= episodeInfo.Title%></title>
+    </head>
+    <body>
+      <!--Homepage Navbar-->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <a class="navbar-brand" href="/home" id="title-navbar">Home</a>
+      </nav>
+    <!--End Navbar-->
+    <!--Main-->
+      <main>
+          <div class="episode-section">
+              <h1 id="title-episode"><%= episodeInfo.Title%></h1>
+              <h2 id="title-podcast"><%= episodeInfo.Podcast%></h2>
+              <img src="/images/<%=episodeInfo.PodcastImage%>" alt="podcast-image" id="image-podcast">
+              <h3 id="episode-description">Description</h3>
+              <p id="episode-description-paragraph"><%= episodeInfo.Description %></p>
+              <h3 id="episode-date">Date</h3>
+              <p id="episode-date-paragraph"><%= episodeInfo.Date %></p>
+              <h3 id="episode-price">Price</h3>
+              <% if (episodeInfo.Price == 0) { %>
+                <p id="episode-price-paragraph">Free</p>
+              <% } else { %>
+                <p id="episode-price-paragraph"><%=episodeInfo.Price%>€</p>
+              <% } %>
+              <% if (episodeInfo.Sponsor) { %>
+              <h3 id="episode-sponsor">Sponsor</h3>
+              <p><%=episodeInfo.Sponsor%></p>
+              <% } %>
+              <h3 id="episode-audio">Audio</h3>
+              <button id="audio-button" class="play-btn" episode-audio="<%=episodeInfo.Audio%>" podcast-image="<%= episodeInfo.PodcastImage %>" 
+                      episode-title="<%= episodeInfo.Title%>" podcast-title="<%= episodeInfo.Podcast%>" auth="<%=username%>" hasCC="<%=hasCC%>"
+                      price="<%= episodeInfo.Price%>">
+                Click to play audio
+              </button>
+              <h3 id="episode-author">Author</h3>
+              <p id="episode-author-paragraph"><%= episodeInfo.Author %></p>
+              <hr>
+              <div class="comment-section">
+                <h1 id="comment-section-title">Comment section</h1>
+                <% if (comments) { %>
+                  <% for (let com of comments) { %>
+                <div class="comment-structure" id="<%=com.ID%>">
+                  <label for="comment-textarea" class="label-comment"><%=com.Username%></label>
+                  <textarea name="comment-text" class="comment-textarea" readonly><%=com.Message%></textarea>
+                  <% if (com.Username === username) { %>
+                  <button class="modify-button button" commentID="<%= com.ID%>" data-toggle="modal" data-target="#modifyCommentModal" data-whatever="<%= com.ID%>">
+                    Modify
+                  </button>
+                  <button class="delete-button button" data-toggle="modal" data-target="#deleteCommentModal" data-whatever="<%= com.ID%>">
+                    Delete
+                  </button>
+                  <% } %>
+                </div>
+                <% } %>
+              <% } %>
+                <!--Creat new comment-->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newCommentModal" id="create-comment">
+                 Create new comment
+                </button>
+              </div>
+          </div>
+          <!--Modals-->
+            <!--New Comment Modal-->
+            <div class="modal fade" id="newCommentModal" tabindex="-1" aria-labelledby="newCommentModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New comment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="POST" action="/home/episodes/<%=episodeInfo.ID%>/createComment" id="create-comment-form">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text" name="comment"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="create-comment-button" 
+                            user="<%=username%>" episodeID="<%=episodeInfo.ID%>">
+                    Create
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Modify Modal-->
+            <div class="modal fade" id="modifyCommentModal" tabindex="-1" aria-labelledby="modifyCommentModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modify comment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="POST" action="/home/episodes/<%=episodeInfo.ID%>/modifyComment" id="modify-comment-form">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text" name="comment"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="modify-comment-button" episodeID="<%=episodeInfo.ID%>">
+                    Modify
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Delete Modal-->
+            <form action="/home/episodes/<%=episodeInfo.ID%>/deleteComment" method="POST" id="delete-comment-form">
+              <div class="modal fade" id="deleteCommentModal" tabindex="-1" aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" id="confirm-delete-button" episodeID="<%=episodeInfo.ID%>">Yes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+      </main>
+    <div id="aplayer" class="aplayer"></div>
+    <!-- Optional JavaScript -->
+    <script src="https://kit.fontawesome.com/6cbd91756c.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- Aplayer JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
+    <!--My Javascript-->
+    <script src="/javascripts/aplayer_episodePage.js"></script>
+    <script src="/javascripts/main_episodePage.js"></script>
+
+  </body>
+ </html>

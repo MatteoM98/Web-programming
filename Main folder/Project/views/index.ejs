@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>MyPodcast</title>
+        <link rel="icon" href="/images/ico.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <!-- My CSS-->
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <!-- Google Fonts-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yatra+One">
+    </head>
+    <body>
+        <!--Navbar-->
+        <nav class="navbar navbar-light bg-dark">
+            <a class="navbar-brand" >MyPodcast</a>
+            <form action="/home" method="POST" class="form-inline" id="search-form">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select a category
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menuDropdown">
+                      <a class="dropdown-item" href="#" id="fist-item">None</a>
+                      <a class="dropdown-item" href="#" id="second-item">Art</a>
+                      <a class="dropdown-item" href="#">Music</a>
+                      <a class="dropdown-item" href="#">Science</a>
+                      <a class="dropdown-item" href="#">Science Fiction</a>
+                      <a class="dropdown-item" href="#">Technology</a>
+                      <a class="dropdown-item" href="#">TV Series</a>
+                    </div>
+                </li>
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-bar" required>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">Search</button>
+            </form>
+        </nav>
+        <!--Alert Message-->
+        <div id="alert-message">
+            <% if(message) { %>
+              <div class="alert alert-<%=type%> alert-dismissible fade show" role="success">
+                <span><%= message %></span> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <% } %>
+          </div>
+        <!--Video in background-->
+        <video src="/images/clip.mp4" class="video-background" autoplay loop muted></video>
+        <!-- Login form-->
+        <div class="box">
+            <h2>Login Form</h2>
+            <div class="login-box">
+                <form action="/sessions" method="POST" id="form-login">
+                    <input type="email" name="username" placeholder="Enter your email..." required>
+                    <input type="password" name="password" placeholder="Enter your password..." id="text-password" required>
+                    <button type="submit" id="login-button">Log in</button>
+                    <div class="container">
+                        <div class="link-area"><a href="#">Forgot Password?</a></div>
+                        <button id="sign-up-button" type="submit">Sign up</button>
+                    </div>
+                </form>
+            </div>   
+        </div> 
+        <!--Footer-->
+        <footer>
+            <div class="main-content">
+                <div class="left side">
+                    <h2>About us</h2>
+                    <div class="content">
+                        <p>Ascolta i tuoi podcast dove vuoi e quando vuoi con MyPodcast. <br>
+                            Non limitarti ad essere un semplice <em>ascoltatore</em>, crea anche tu 
+                            i tuoi contenuti e condividili con gli altri utenti! <br>
+                            Seguiteci sui social per rimanere sempre aggiornati sulle novit&aacute;:
+                        </p>
+                        <div class="social">
+                            <a href="#"><span class="fab fa-facebook-f"></span></a>
+                            <a href="#"><span class="fab fa-twitter"></span></a>
+                            <a href="#"><span class="fab fa-instagram"></span></a>
+                            <a href="#"><span class="fab fa-youtube"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center side">
+                    <h2>Address</h2>
+                    <div class="content">
+                        <div class="place">
+                            <span class="fas fa-map-marker-alt"></span>
+                            <span class="text">Novi Ligure,Italia</span>
+                        </div>
+                        <div class="phone">
+                            <span class="fas fa-phone-alt"></span>
+                            <span class="text">+012-3456789</span> 
+                        </div>
+                        <div class="email">
+                            <span class="fas fa-envelope"></span>
+                            <span class="text">mypodcast@example.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right side">
+                    <h2>Contact Us</h2>
+                    <div class="content">
+                       <form action="#" method="#">
+                           <div class="email">
+                               <div class="text">Email *</div>
+                               <input type="email" required>
+                           </div>
+                           <div class="msg">
+                               <div class="text">Message *</div>
+                               <textarea cols="25" rows="2" required></textarea>
+                           </div>
+                           <div class="send-btn">
+                               <button type="submit">Send</button>
+                           </div>
+                       </form> 
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="center-credit">
+                    <span class="credit"> Created By <a href="#">Matteo Magr&iacute;</a> |</span>
+                    <span class="far fa-copyright"></span><span> 2020 All rights reserved.</span>
+                </div>
+            </div>
+        </footer>
+    <!-- Optional JavaScript -->
+    <script src="https://kit.fontawesome.com/6cbd91756c.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!--My Javascript file-->
+    <script src="/javascripts/main.js"></script>
+    </body>
+ </html>

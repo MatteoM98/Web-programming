@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- My CSS-->
+      <link rel="stylesheet" href="/stylesheets/homepage_style.css">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!--Aplayer CSS-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
+      <!-- Google Fonts-->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yatra+One">
+      <% if (username) { %>
+        <title>Homepage | <%=username%></title>
+      <% } else { %> 
+        <title>Homepage</title>
+        <% } %>
+    </head>
+    <body>
+      <!--Homepage Navbar-->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <% if (username) { %>
+          <a class="navbar-brand" href="/profiles/<%=username%>" id="title-navbar"><i class="far fa-user" id="userICO"></i>My profile</a>
+          <% } else { %>
+          <a class="navbar-brand" href="/" id="title-navbar">MyPodcast</a>
+          <% } %>
+          <form class="form-inline my-2 my-lg-0" id="search-form" method="POST" action="/home/podcasts/search">
+            <div class="dropdown">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select a category
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="menuDropdown">
+                <a class="dropdown-item" href="#">Art</a>
+                <a class="dropdown-item" href="#">Music</a>
+                <a class="dropdown-item" href="#">Science</a>
+                <a class="dropdown-item" href="#">Science Fiction</a>
+                <a class="dropdown-item" href="#">Technology</a>
+                <a class="dropdown-item" href="#">TV Series</a>
+                <a class="dropdown-item" href="#">Other</a>
+              </div>
+
+            </div>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-field">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">Search</button>
+          </form>
+        </div>
+      </nav>
+    <!--End Navbar-->
+    <!--SideBar-->
+    <div class="container-fluid">
+      <div class="row">
+        <aside class="col-3 bg-light border border-top-0 border-secondary vheight-100">
+          <div class="list-group list-group-flush aside-bar">
+                <a href="/home" class="list-group-item list-group-item-action">All</a>
+                <a href="/home/podcasts" class="list-group-item list-group-item-action active">Podcasts</a>
+                <a href="/home/episodes" class="list-group-item list-group-item-action">Episodes</a>
+          </div>
+        </aside>
+    <!--End SideBar-->
+    <!--Main-->
+        <main class="col-9 below-nav">
+          <h1 id="title-podcast-section">Podcasts</h1>
+          <% if (podcasts) { %>
+            <% for (let row of podcasts) { %>
+              <%- include('./podcastHomepageView', {'title': row.Title, 'description': row.Description, 'category': row.Category, 'image': row.Image, 'ID' : row.ID}); -%>
+              <% } %>
+          <% } %>
+        </main>
+      </div>
+    </div>
+    <div id="aplayer" class="aplayer"></div>
+    <!-- Optional JavaScript -->
+    <script src="https://kit.fontawesome.com/6cbd91756c.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- Aplayer JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
+    <!--My Javascript-->
+    <script src="/javascripts/aplayer_homepage.js"></script>
+    <script src="/javascripts/main_homepage.js"></script>
+
+  </body>
+ </html>

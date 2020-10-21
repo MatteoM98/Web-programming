@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- My CSS-->
+   <link rel="stylesheet" href="/stylesheets/createEpisode_style.css">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <!--Aplayer CSS-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
+    <!-- Google Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yatra+One">
+   <title>Profile | <%=username%></title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <%- include('./profileNavbar', {'username': username, 'type': type}); -%>
+    <!--Alert Message-->
+    <%- include('./alertMessage', {'message' : message, 'messageType' : messageType}); -%>
+    <!--SideBar-->
+    <div class="container-fluid">
+      <div class="row">
+          <aside class="col-3 bg-light border border-top-0 border-secondary vheight-100">
+              <div class="list-group list-group-flush aside-bar">
+                  <a href="/profiles/<%=username%>" class="list-group-item list-group-item-action">Podcasts</a>
+                  <a href="/profiles/<%=username%>/episodes" class="list-group-item list-group-item-action">Podcasts' Episodes</a>
+                  <a href="/profiles/<%=username%>/favouriteEpisodes" class="list-group-item list-group-item-action">My favourite Episodes</a>
+                  <a href="/profiles/<%=username%>/creditcard" class="list-group-item list-group-item-action">Credit Card</a>
+                  <% if(type === 'Creator') { %>
+                    <a href="/profiles/<%=username%>/newPodcast" class="list-group-item list-group-item-action">Create New Podcast <span class="badge badge-primary">Creator</span></a>
+                    <a href="/profiles/<%=username%>/newEpisode" class="list-group-item list-group-item-action active">Create New Episode <span class="badge badge-primary">Creator</span></a>
+                    <a href="/profiles/<%=username%>/mypodcasts" class="list-group-item list-group-item-action">View my created podcasts <span class="badge badge-primary">Creator</span></a>
+                    <a href="/profiles/<%=username%>/myepisodes" class="list-group-item list-group-item-action">View my created episodes <span class="badge badge-primary">Creator</span></a>
+                  <% } %>
+                </div>
+                <% if(type === 'Auditor') { %>
+                  <button type="button" class="btn btn-primary" id="update-creator-btn">Click here! Became a Creator and join community!</button>
+               <% } %>
+          </aside>
+          <!--Main content-->
+          <main class="col-9 below-nav">
+            <%- include('./formNewEpisode'); -%>
+          </main>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- Aplayer JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
+  </body>
+</html>
